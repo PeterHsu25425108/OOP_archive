@@ -1,0 +1,120 @@
+Round 1:
+ID_0 is at (5,5)
+ID_1 is at (6,5)
+ID_2 is at (7,5)
+ID_3 is at (8,5)
+ID_4 is at (9,6)
+ID_5 is at (6,6)
+ID_6 is at (20,20)
+ID_7 is at (21,20)
+ID_8 is at (24,21)
+ID_9 is at (22,20)
+ID_10 is at (23,20)
+ID_11 is at (21,21)
+
+Round 2:
+ID_0 generates 1 villager
+ID_2 generates 1 villager
+ID_3 generates 1 villager
+ID_6 generates 1 villager
+ID_9 generates 1 villager
+ID_10 generates 1 villager
+
+Round 3:
+ID_12 moves to (6,6)
+ID_13 moves to (6,6)
+ID_14 moves to (9,6)
+ID_15 moves to (21,21)
+ID_16 moves to (21,21)
+ID_17 moves to (24,21)
+ID_0 generates 1 villager
+ID_2 generates 1 villager
+ID_3 generates 1 villager
+ID_6 generates 1 villager
+ID_9 generates 1 villager
+ID_10 generates 1 villager
+
+Round 4:
+ID_4 generates 200 foods
+ID_8 generates 200 foods
+
+Round 5:
+ID_24 is at (5,7)
+ID_25 is at (20,22)
+ID_4 generates 200 foods
+ID_8 generates 200 foods
+
+Round 6:
+ID_18 moves to (5,7)
+ID_19 moves to (7,7)
+ID_20 moves to (7,6)
+ID_21 moves to (20,22)
+ID_22 moves to (22,22)
+ID_23 moves to (22,21)
+ID_0 generates 1 villager
+ID_3 generates 1 villager
+ID_4 generates 200 foods
+ID_5 generates 1 archer
+ID_6 generates 1 villager
+ID_8 generates 200 foods
+ID_10 generates 1 villager
+ID_11 generates 1 spearman
+
+Round 7:
+ID_31 moves to (19,22)
+ID_28 moves to (8,9)
+ID_19 moves to (6,7)
+ID_20 moves to (7,7)
+ID_22 moves to (21,22)
+ID_23 moves to (22,22)
+ID_26 moves to (5,7)
+ID_29 moves to (20,22)
+ID_0 generates 1 villager
+ID_2 generates 1 villager
+ID_4 generates 200 foods
+ID_6 generates 1 villager
+ID_8 generates 200 foods
+ID_9 generates 1 villager
+
+Round 8:
+ID_31 moves to (19,20)
+ID_28 moves to (10,11)
+ID_4 generates 200 foods
+ID_8 generates 200 foods
+
+Round 9:
+ID_31 moves to (18,19)
+ID_28 moves to (12,13)
+ID_4 generates 200 foods
+ID_8 generates 200 foods
+ID_24 generates 1 spearman
+ID_25 generates 1 archer
+
+Round 10:
+ID_31 moves to (17,18)
+ID_36 moves to (7,8)
+ID_28 moves to (14,15)
+ID_37 moves to (18,21)
+ID_4 generates 200 foods
+ID_8 generates 200 foods
+
+Round 11:
+ID_31 moves to (16,17)
+ID_36 moves to (8,9)
+ID_28 moves to (15,16)
+ID_28 (15,16) attacks ID_31 (16,17)
+ID_37 moves to (16,19)
+ID_4 generates 200 foods
+ID_8 generates 200 foods
+ID_24 generates 1 spearman
+ID_25 generates 1 archer
+
+Round 12:
+ID_31 (16,17) attacks ID_28 (15,16)
+ID_31 destroys ID_28
+ID_36 moves to (9,10)
+ID_38 moves to (7,8)
+ID_37 moves to (14,17)
+ID_39 moves to (18,21)
+ID_4 generates 200 foods
+ID_8 generates 200 foods

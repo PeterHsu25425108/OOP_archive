@@ -1,0 +1,44 @@
+enter Tom 20 M
+enter Sam 7 M
+buy Sam apple
+buy Sam donut
+buy Sam orange
+buy Sam coke
+enter Yuri 24 F
+buy Tom croissant
+queue Sam
+display
+open Cherry 20 F junior
+buy Yuri coffee
+queue Yuri
+display
+enter Henry 26 M
+buy Henry bagel
+queue Henry
+display
+checkout Cherry Henry
+checkout Cherry Sam
+display
+enter Betty 18 F
+buy Betty juice
+queue Betty
+display
+close Cherry
+display
+enter Mike 5 M
+buy Mike coke
+buy Mike orange
+buy Mike coke
+queue Mike
+open Amy 34 F senior
+display
+checkout Amy Henry
+display
+checkout Amy Jonathan
+checkout Amy Mike
+display
+checkout Amy Yuri
+checkout Amy Betty
+display
+close Amy
+display

@@ -1,0 +1,7 @@
+house 5 5
+house 6 5
+house 7 5
+house 8 5
+farm 9 6
+archer_barracks 6 6
+spearman_barracks  5 7

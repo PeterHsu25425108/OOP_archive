@@ -1,0 +1,60 @@
+Sam can't buy anymore!
+queue: Sam
+queue:
+Cherry's counter: Sam Yuri
+queue: Henry
+Cherry's counter: Sam Yuri
+Henry isn't at Cherry's counter!
++-------------------------------------------+
+|Name: Sam                                  |
++-------------------------------------------+
+|      item|  quantity|unit price|     total|
+|     donut|         1|        40|        40|
+|     apple|         1|        10|        10|
+|    orange|         1|        20|        20|
+|                           total amount: 70|
++-------------------------------------------+
+queue:
+Cherry's counter: Yuri Henry
+queue: Betty
+Cherry's counter: Yuri Henry
+queue: Yuri <- Henry <- Betty
+queue: Mike
+Amy's counter: Yuri Henry Betty
++-------------------------------------------+
+|Name: Henry                                |
++-------------------------------------------+
+|      item|  quantity|unit price|     total|
+|     bagel|         1|        45|        45|
+|                           total amount: 45|
++-------------------------------------------+
+queue:
+Amy's counter: Yuri Betty Mike
+Jonathan isn't at Amy's counter!
++-------------------------------------------+
+|Name: Mike                                 |
++-------------------------------------------+
+|      item|  quantity|unit price|     total|
+|    orange|         1|        20|        20|
+|      coke|         2|        30|        60|
+|                           total amount: 80|
++-------------------------------------------+
+queue:
+Amy's counter: Yuri Betty
++-------------------------------------------+
+|Name: Yuri                                 |
++-------------------------------------------+
+|      item|  quantity|unit price|     total|
+|    coffee|         1|        40|        40|
+|                           total amount: 40|
++-------------------------------------------+
++-------------------------------------------+
+|Name: Betty                                |
++-------------------------------------------+
+|      item|  quantity|unit price|     total|
+|     juice|         1|        50|        50|
+|                           total amount: 50|
++-------------------------------------------+
+queue:
+Amy's counter:
+queue:

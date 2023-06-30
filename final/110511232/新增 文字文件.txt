@@ -1,0 +1,650 @@
+==16234== Memcheck, a memory error detector
+==16234== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==16234== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==16234== Command: ./P2 grocery.in scenario.in
+==16234==
+
+Next input: enter Tom 20 M
+
+Next input: enter Sam 7 M
+
+Next input: buy Sam apple
+
+Next input: buy Sam donut
+
+Next input: buy Sam orange
+
+Next input: buy Sam coke
+Sam can't buy anymore!
+
+Next input: enter Yuri 24 F
+
+Next input: buy Tom croissant
+
+Next input: queue Sam
+
+Next input: display
+queue: Sam
+
+Next input: open Cherry 20 F junior
+
+Next input: buy Yuri coffee
+
+Next input: queue Yuri
+
+Next input: display
+queue:
+Cherry's counter: Sam Yuri
+
+Next input: enter Henry 26 M
+
+Next input: buy Henry bagel
+
+Next input: queue Henry
+
+Next input: display
+queue: Henry
+Cherry's counter: Sam Yuri
+
+Next input: checkout Cherry Henry
+Cherry
+found Cherry
+Henry isn't at Cherry' s counter!
+
+Next input: checkout Cherry Sam
+Cherry
+found Cherry
+found customer Sam
++-------------------------------------------+
+|Name: Sam                                  |
++-------------------------------------------+
+|      item|  quantity|unit price|     total|
+|     donut|         1|        40|        40|
+|     apple|         1|        10|        10|
+|    orange|         1|        20|        20|
+|                           total amount: 70|
++-------------------------------------------+
+Deleting customer Sam
+#Sam
+#Yuri
+==16234== Invalid read of size 8
+==16234==    at 0x4F65187: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==16234==    by 0x112F0D: Grocery::Grocery(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11673F: void __gnu_cxx::new_allocator<Grocery>::construct<Grocery, Grocery const&>(Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x116342: void std::allocator_traits<std::allocator<Grocery> >::construct<Grocery, Grocery const&>(std::allocator<Grocery>&, Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1160D5: std::vector<Grocery, std::allocator<Grocery> >::push_back(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115A6E: Customer::operator=(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1152FB: Customer* std::__copy_move<true, false, std::random_access_iterator_tag>::__copy_m<Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115299: Customer* std::__copy_move_a<true, Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115232: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::__copy_move_a2<true, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1151CD: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::move<__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11513E: std::vector<Customer, std::allocator<Customer> >::_M_erase(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115040: std::vector<Customer, std::allocator<Customer> >::erase(__gnu_cxx::__normal_iterator<Customer const*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==  Address 0x5b8dcd0 is 0 bytes after a block of size 80 alloc'd
+==16234==    at 0x4C3217F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16234==    by 0x113921: __gnu_cxx::new_allocator<Grocery>::allocate(unsigned long, void const*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112E47: std::allocator_traits<std::allocator<Grocery> >::allocate(std::allocator<Grocery>&, unsigned long) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1118B3: std::_Vector_base<Grocery, std::allocator<Grocery> >::_M_allocate(unsigned long) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10F53C: std::_Vector_base<Grocery, std::allocator<Grocery> >::_M_create_storage(unsigned long) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10DAF4: std::_Vector_base<Grocery, std::allocator<Grocery> >::_Vector_base(unsigned long, std::allocator<Grocery> const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10CA24: std::vector<Grocery, std::allocator<Grocery> >::vector(std::vector<Grocery, std::allocator<Grocery> > const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11080C: Customer::Customer(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1130E4: void std::_Construct<Customer, Customer const&>(Customer*, Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x111A90: Customer* std::__uninitialized_copy<false>::__uninit_copy<__gnu_cxx::__normal_iterator<Customer const*, std::vector<Customer, std::allocator<Customer> > >, Customer*>(__gnu_cxx::__normal_iterator<Customer const*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer const*, std::vector<Customer, std::allocator<Customer> > >, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10F7F1: Customer* std::uninitialized_copy<__gnu_cxx::__normal_iterator<Customer const*, std::vector<Customer, std::allocator<Customer> > >, Customer*>(__gnu_cxx::__normal_iterator<Customer const*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer const*, std::vector<Customer, std::allocator<Customer> > >, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10DEDE: Customer* std::__uninitialized_copy_a<__gnu_cxx::__normal_iterator<Customer const*, std::vector<Customer, std::allocator<Customer> > >, Customer*, Customer>(__gnu_cxx::__normal_iterator<Customer const*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer const*, std::vector<Customer, std::allocator<Customer> > >, Customer*, std::allocator<Customer>&) (in /home/stu110511232/110511232/p2/P2)
+==16234==
+==16234== Invalid read of size 8
+==16234==    at 0x4F6518A: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==16234==    by 0x112F0D: Grocery::Grocery(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11673F: void __gnu_cxx::new_allocator<Grocery>::construct<Grocery, Grocery const&>(Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x116342: void std::allocator_traits<std::allocator<Grocery> >::construct<Grocery, Grocery const&>(std::allocator<Grocery>&, Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1160D5: std::vector<Grocery, std::allocator<Grocery> >::push_back(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115A6E: Customer::operator=(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1152FB: Customer* std::__copy_move<true, false, std::random_access_iterator_tag>::__copy_m<Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115299: Customer* std::__copy_move_a<true, Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115232: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::__copy_move_a2<true, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1151CD: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::move<__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11513E: std::vector<Customer, std::allocator<Customer> >::_M_erase(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115040: std::vector<Customer, std::allocator<Customer> >::erase(__gnu_cxx::__normal_iterator<Customer const*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==  Address 0x5b8dcd8 is 8 bytes after a block of size 80 alloc'd
+==16234==    at 0x4C3217F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16234==    by 0x113921: __gnu_cxx::new_allocator<Grocery>::allocate(unsigned long, void const*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112E47: std::allocator_traits<std::allocator<Grocery> >::allocate(std::allocator<Grocery>&, unsigned long) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1118B3: std::_Vector_base<Grocery, std::allocator<Grocery> >::_M_allocate(unsigned long) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10F53C: std::_Vector_base<Grocery, std::allocator<Grocery> >::_M_create_storage(unsigned long) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10DAF4: std::_Vector_base<Grocery, std::allocator<Grocery> >::_Vector_base(unsigned long, std::allocator<Grocery> const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10CA24: std::vector<Grocery, std::allocator<Grocery> >::vector(std::vector<Grocery, std::allocator<Grocery> > const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11080C: Customer::Customer(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1130E4: void std::_Construct<Customer, Customer const&>(Customer*, Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x111A90: Customer* std::__uninitialized_copy<false>::__uninit_copy<__gnu_cxx::__normal_iterator<Customer const*, std::vector<Customer, std::allocator<Customer> > >, Customer*>(__gnu_cxx::__normal_iterator<Customer const*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer const*, std::vector<Customer, std::allocator<Customer> > >, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10F7F1: Customer* std::uninitialized_copy<__gnu_cxx::__normal_iterator<Customer const*, std::vector<Customer, std::allocator<Customer> > >, Customer*>(__gnu_cxx::__normal_iterator<Customer const*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer const*, std::vector<Customer, std::allocator<Customer> > >, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10DEDE: Customer* std::__uninitialized_copy_a<__gnu_cxx::__normal_iterator<Customer const*, std::vector<Customer, std::allocator<Customer> > >, Customer*, Customer>(__gnu_cxx::__normal_iterator<Customer const*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer const*, std::vector<Customer, std::allocator<Customer> > >, Customer*, std::allocator<Customer>&) (in /home/stu110511232/110511232/p2/P2)
+==16234==
+==16234== Invalid read of size 8
+==16234==    at 0x4F65187: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==16234==    by 0x112F28: Grocery::Grocery(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11673F: void __gnu_cxx::new_allocator<Grocery>::construct<Grocery, Grocery const&>(Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x116342: void std::allocator_traits<std::allocator<Grocery> >::construct<Grocery, Grocery const&>(std::allocator<Grocery>&, Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1160D5: std::vector<Grocery, std::allocator<Grocery> >::push_back(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115A6E: Customer::operator=(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1152FB: Customer* std::__copy_move<true, false, std::random_access_iterator_tag>::__copy_m<Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115299: Customer* std::__copy_move_a<true, Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115232: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::__copy_move_a2<true, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1151CD: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::move<__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11513E: std::vector<Customer, std::allocator<Customer> >::_M_erase(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115040: std::vector<Customer, std::allocator<Customer> >::erase(__gnu_cxx::__normal_iterator<Customer const*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==  Address 0x5b8dcf0 is 32 bytes before a block of size 144 in arena "client"
+==16234==
+==16234== Invalid read of size 8
+==16234==    at 0x4F6518A: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::basic_string(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==16234==    by 0x112F28: Grocery::Grocery(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11673F: void __gnu_cxx::new_allocator<Grocery>::construct<Grocery, Grocery const&>(Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x116342: void std::allocator_traits<std::allocator<Grocery> >::construct<Grocery, Grocery const&>(std::allocator<Grocery>&, Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1160D5: std::vector<Grocery, std::allocator<Grocery> >::push_back(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115A6E: Customer::operator=(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1152FB: Customer* std::__copy_move<true, false, std::random_access_iterator_tag>::__copy_m<Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115299: Customer* std::__copy_move_a<true, Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115232: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::__copy_move_a2<true, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1151CD: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::move<__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11513E: std::vector<Customer, std::allocator<Customer> >::_M_erase(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115040: std::vector<Customer, std::allocator<Customer> >::erase(__gnu_cxx::__normal_iterator<Customer const*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==  Address 0x5b8dcf8 is 24 bytes before a block of size 144 free'd
+==16234==    at 0x4C3323B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16234==    by 0x11302B: __gnu_cxx::new_allocator<Customer>::deallocate(Customer*, unsigned long) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x111A33: std::allocator_traits<std::allocator<Customer> >::deallocate(std::allocator<Customer>&, Customer*, unsigned long) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10F7A1: std::_Vector_base<Customer, std::allocator<Customer> >::_M_deallocate(Customer*, unsigned long) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10DDE9: std::_Vector_base<Customer, std::allocator<Customer> >::~_Vector_base() (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10CC8A: std::vector<Customer, std::allocator<Customer> >::~vector() (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10B78A: checkout_func(std::__cxx11::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, std::vector<Cashier, std::allocator<Cashier> >, std::vector<Customer, std::allocator<Customer> >&, std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Grocery, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, Grocery> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10C215: main (in /home/stu110511232/110511232/p2/P2)
+==16234==  Block was alloc'd at
+==16234==    at 0x4C3217F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16234==    by 0x113403: __gnu_cxx::new_allocator<Customer>::allocate(unsigned long, void const*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1124A8: std::allocator_traits<std::allocator<Customer> >::allocate(std::allocator<Customer>&, unsigned long) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x110A0D: std::_Vector_base<Customer, std::allocator<Customer> >::_M_allocate(unsigned long) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10F72E: std::_Vector_base<Customer, std::allocator<Customer> >::_M_create_storage(unsigned long) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10DD74: std::_Vector_base<Customer, std::allocator<Customer> >::_Vector_base(unsigned long, std::allocator<Customer> const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10CB9A: std::vector<Customer, std::allocator<Customer> >::vector(std::vector<Customer, std::allocator<Customer> > const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10C730: Cashier::getCustomers() const (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10B766: checkout_func(std::__cxx11::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, std::vector<Cashier, std::allocator<Cashier> >, std::vector<Customer, std::allocator<Customer> >&, std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Grocery, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, Grocery> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10C215: main (in /home/stu110511232/110511232/p2/P2)
+==16234==
+==16234== Invalid read of size 4
+==16234==    at 0x112F2D: Grocery::Grocery(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11673F: void __gnu_cxx::new_allocator<Grocery>::construct<Grocery, Grocery const&>(Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x116342: void std::allocator_traits<std::allocator<Grocery> >::construct<Grocery, Grocery const&>(std::allocator<Grocery>&, Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1160D5: std::vector<Grocery, std::allocator<Grocery> >::push_back(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115A6E: Customer::operator=(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1152FB: Customer* std::__copy_move<true, false, std::random_access_iterator_tag>::__copy_m<Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115299: Customer* std::__copy_move_a<true, Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115232: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::__copy_move_a2<true, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1151CD: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::move<__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11513E: std::vector<Customer, std::allocator<Customer> >::_M_erase(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115040: std::vector<Customer, std::allocator<Customer> >::erase(__gnu_cxx::__normal_iterator<Customer const*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x114BF2: Cashier::deleteCustomer(int) (in /home/stu110511232/110511232/p2/P2)
+==16234==  Address 0x5b8dd10 is 0 bytes inside a block of size 144 free'd
+==16234==    at 0x4C3323B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16234==    by 0x11302B: __gnu_cxx::new_allocator<Customer>::deallocate(Customer*, unsigned long) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x111A33: std::allocator_traits<std::allocator<Customer> >::deallocate(std::allocator<Customer>&, Customer*, unsigned long) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10F7A1: std::_Vector_base<Customer, std::allocator<Customer> >::_M_deallocate(Customer*, unsigned long) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10DDE9: std::_Vector_base<Customer, std::allocator<Customer> >::~_Vector_base() (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10CC8A: std::vector<Customer, std::allocator<Customer> >::~vector() (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10B78A: checkout_func(std::__cxx11::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, std::vector<Cashier, std::allocator<Cashier> >, std::vector<Customer, std::allocator<Customer> >&, std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Grocery, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, Grocery> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10C215: main (in /home/stu110511232/110511232/p2/P2)
+==16234==  Block was alloc'd at
+==16234==    at 0x4C3217F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16234==    by 0x113403: __gnu_cxx::new_allocator<Customer>::allocate(unsigned long, void const*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1124A8: std::allocator_traits<std::allocator<Customer> >::allocate(std::allocator<Customer>&, unsigned long) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x110A0D: std::_Vector_base<Customer, std::allocator<Customer> >::_M_allocate(unsigned long) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10F72E: std::_Vector_base<Customer, std::allocator<Customer> >::_M_create_storage(unsigned long) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10DD74: std::_Vector_base<Customer, std::allocator<Customer> >::_Vector_base(unsigned long, std::allocator<Customer> const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10CB9A: std::vector<Customer, std::allocator<Customer> >::vector(std::vector<Customer, std::allocator<Customer> > const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10C730: Cashier::getCustomers() const (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10B766: checkout_func(std::__cxx11::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, std::vector<Cashier, std::allocator<Cashier> >, std::vector<Customer, std::allocator<Customer> >&, std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Grocery, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, Grocery> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10C215: main (in /home/stu110511232/110511232/p2/P2)
+==16234==
+==16234== Invalid read of size 4
+==16234==    at 0x112F3B: Grocery::Grocery(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11673F: void __gnu_cxx::new_allocator<Grocery>::construct<Grocery, Grocery const&>(Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x116342: void std::allocator_traits<std::allocator<Grocery> >::construct<Grocery, Grocery const&>(std::allocator<Grocery>&, Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1160D5: std::vector<Grocery, std::allocator<Grocery> >::push_back(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115A6E: Customer::operator=(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1152FB: Customer* std::__copy_move<true, false, std::random_access_iterator_tag>::__copy_m<Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115299: Customer* std::__copy_move_a<true, Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115232: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::__copy_move_a2<true, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1151CD: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::move<__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11513E: std::vector<Customer, std::allocator<Customer> >::_M_erase(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115040: std::vector<Customer, std::allocator<Customer> >::erase(__gnu_cxx::__normal_iterator<Customer const*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x114BF2: Cashier::deleteCustomer(int) (in /home/stu110511232/110511232/p2/P2)
+==16234==  Address 0x5b8dd14 is 4 bytes inside a block of size 144 free'd
+==16234==    at 0x4C3323B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16234==    by 0x11302B: __gnu_cxx::new_allocator<Customer>::deallocate(Customer*, unsigned long) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x111A33: std::allocator_traits<std::allocator<Customer> >::deallocate(std::allocator<Customer>&, Customer*, unsigned long) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10F7A1: std::_Vector_base<Customer, std::allocator<Customer> >::_M_deallocate(Customer*, unsigned long) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10DDE9: std::_Vector_base<Customer, std::allocator<Customer> >::~_Vector_base() (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10CC8A: std::vector<Customer, std::allocator<Customer> >::~vector() (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10B78A: checkout_func(std::__cxx11::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, std::vector<Cashier, std::allocator<Cashier> >, std::vector<Customer, std::allocator<Customer> >&, std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Grocery, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, Grocery> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10C215: main (in /home/stu110511232/110511232/p2/P2)
+==16234==  Block was alloc'd at
+==16234==    at 0x4C3217F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16234==    by 0x113403: __gnu_cxx::new_allocator<Customer>::allocate(unsigned long, void const*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1124A8: std::allocator_traits<std::allocator<Customer> >::allocate(std::allocator<Customer>&, unsigned long) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x110A0D: std::_Vector_base<Customer, std::allocator<Customer> >::_M_allocate(unsigned long) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10F72E: std::_Vector_base<Customer, std::allocator<Customer> >::_M_create_storage(unsigned long) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10DD74: std::_Vector_base<Customer, std::allocator<Customer> >::_Vector_base(unsigned long, std::allocator<Customer> const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10CB9A: std::vector<Customer, std::allocator<Customer> >::vector(std::vector<Customer, std::allocator<Customer> > const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10C730: Cashier::getCustomers() const (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10B766: checkout_func(std::__cxx11::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, std::vector<Cashier, std::allocator<Cashier> >, std::vector<Customer, std::allocator<Customer> >&, std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Grocery, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, Grocery> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10C215: main (in /home/stu110511232/110511232/p2/P2)
+==16234==
+==16234== Invalid read of size 4
+==16234==    at 0x112F49: Grocery::Grocery(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11673F: void __gnu_cxx::new_allocator<Grocery>::construct<Grocery, Grocery const&>(Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x116342: void std::allocator_traits<std::allocator<Grocery> >::construct<Grocery, Grocery const&>(std::allocator<Grocery>&, Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1160D5: std::vector<Grocery, std::allocator<Grocery> >::push_back(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115A6E: Customer::operator=(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1152FB: Customer* std::__copy_move<true, false, std::random_access_iterator_tag>::__copy_m<Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115299: Customer* std::__copy_move_a<true, Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115232: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::__copy_move_a2<true, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1151CD: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::move<__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11513E: std::vector<Customer, std::allocator<Customer> >::_M_erase(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115040: std::vector<Customer, std::allocator<Customer> >::erase(__gnu_cxx::__normal_iterator<Customer const*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x114BF2: Cashier::deleteCustomer(int) (in /home/stu110511232/110511232/p2/P2)
+==16234==  Address 0x5b8dd18 is 8 bytes inside a block of size 144 free'd
+==16234==    at 0x4C3323B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16234==    by 0x11302B: __gnu_cxx::new_allocator<Customer>::deallocate(Customer*, unsigned long) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x111A33: std::allocator_traits<std::allocator<Customer> >::deallocate(std::allocator<Customer>&, Customer*, unsigned long) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10F7A1: std::_Vector_base<Customer, std::allocator<Customer> >::_M_deallocate(Customer*, unsigned long) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10DDE9: std::_Vector_base<Customer, std::allocator<Customer> >::~_Vector_base() (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10CC8A: std::vector<Customer, std::allocator<Customer> >::~vector() (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10B78A: checkout_func(std::__cxx11::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, std::vector<Cashier, std::allocator<Cashier> >, std::vector<Customer, std::allocator<Customer> >&, std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Grocery, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, Grocery> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10C215: main (in /home/stu110511232/110511232/p2/P2)
+==16234==  Block was alloc'd at
+==16234==    at 0x4C3217F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16234==    by 0x113403: __gnu_cxx::new_allocator<Customer>::allocate(unsigned long, void const*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1124A8: std::allocator_traits<std::allocator<Customer> >::allocate(std::allocator<Customer>&, unsigned long) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x110A0D: std::_Vector_base<Customer, std::allocator<Customer> >::_M_allocate(unsigned long) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10F72E: std::_Vector_base<Customer, std::allocator<Customer> >::_M_create_storage(unsigned long) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10DD74: std::_Vector_base<Customer, std::allocator<Customer> >::_Vector_base(unsigned long, std::allocator<Customer> const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10CB9A: std::vector<Customer, std::allocator<Customer> >::vector(std::vector<Customer, std::allocator<Customer> > const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10C730: Cashier::getCustomers() const (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10B766: checkout_func(std::__cxx11::basic_stringstream<char, std::char_traits<char>, std::allocator<char> >&, std::vector<Cashier, std::allocator<Cashier> >, std::vector<Customer, std::allocator<Customer> >&, std::map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Grocery, std::less<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, Grocery> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10C215: main (in /home/stu110511232/110511232/p2/P2)
+==16234==
+==16234== Invalid read of size 8
+==16234==    at 0x4C388AC: memmove (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16234==    by 0x116BDF: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112F28: Grocery::Grocery(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11673F: void __gnu_cxx::new_allocator<Grocery>::construct<Grocery, Grocery const&>(Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x116342: void std::allocator_traits<std::allocator<Grocery> >::construct<Grocery, Grocery const&>(std::allocator<Grocery>&, Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1160D5: std::vector<Grocery, std::allocator<Grocery> >::push_back(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115A6E: Customer::operator=(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1152FB: Customer* std::__copy_move<true, false, std::random_access_iterator_tag>::__copy_m<Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115299: Customer* std::__copy_move_a<true, Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115232: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::__copy_move_a2<true, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1151CD: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::move<__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11513E: std::vector<Customer, std::allocator<Customer> >::_M_erase(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==  Address 0x5f6e038 is 8 bytes before a block of size 96,001,745 alloc'd
+==16234==    at 0x4C3217F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16234==    by 0x116B98: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112F28: Grocery::Grocery(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11673F: void __gnu_cxx::new_allocator<Grocery>::construct<Grocery, Grocery const&>(Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x116342: void std::allocator_traits<std::allocator<Grocery> >::construct<Grocery, Grocery const&>(std::allocator<Grocery>&, Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1160D5: std::vector<Grocery, std::allocator<Grocery> >::push_back(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115A6E: Customer::operator=(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1152FB: Customer* std::__copy_move<true, false, std::random_access_iterator_tag>::__copy_m<Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115299: Customer* std::__copy_move_a<true, Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115232: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::__copy_move_a2<true, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1151CD: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::move<__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11513E: std::vector<Customer, std::allocator<Customer> >::_M_erase(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==
+erase complete
+delete complete
+refill customer complete
+
+Next input: display
+queue:
+Cherry's counter: Sam Yuri
+
+Next input: enter Betty 18 F
+
+Next input: buy Betty juice
+
+Next input: queue Betty
+
+Next input: display
+queue: Betty
+Cherry's counter: Sam Yuri
+
+Next input: close Cherry
+
+Next input: display
+queue: Sam <- Yuri <- Betty
+
+Next input: enter Mike 5 M
+
+Next input: buy Mike coke
+
+Next input: buy Mike orange
+
+Next input: buy Mike coke
+
+Next input: queue Mike
+
+Next input: open Amy 34 F senior
+==16234== Conditional jump or move depends on uninitialised value(s)
+==16234==    at 0x116B38: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112F0D: Grocery::Grocery(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11673F: void __gnu_cxx::new_allocator<Grocery>::construct<Grocery, Grocery const&>(Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x116342: void std::allocator_traits<std::allocator<Grocery> >::construct<Grocery, Grocery const&>(std::allocator<Grocery>&, Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1160D5: std::vector<Grocery, std::allocator<Grocery> >::push_back(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115A6E: Customer::operator=(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1152FB: Customer* std::__copy_move<true, false, std::random_access_iterator_tag>::__copy_m<Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115299: Customer* std::__copy_move_a<true, Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115232: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::__copy_move_a2<true, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1151CD: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::move<__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11513E: std::vector<Customer, std::allocator<Customer> >::_M_erase(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115040: std::vector<Customer, std::allocator<Customer> >::erase(__gnu_cxx::__normal_iterator<Customer const*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==
+==16234== Conditional jump or move depends on uninitialised value(s)
+==16234==    at 0x116B7F: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112F0D: Grocery::Grocery(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11673F: void __gnu_cxx::new_allocator<Grocery>::construct<Grocery, Grocery const&>(Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x116342: void std::allocator_traits<std::allocator<Grocery> >::construct<Grocery, Grocery const&>(std::allocator<Grocery>&, Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1160D5: std::vector<Grocery, std::allocator<Grocery> >::push_back(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115A6E: Customer::operator=(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1152FB: Customer* std::__copy_move<true, false, std::random_access_iterator_tag>::__copy_m<Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115299: Customer* std::__copy_move_a<true, Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115232: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::__copy_move_a2<true, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1151CD: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::move<__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11513E: std::vector<Customer, std::allocator<Customer> >::_M_erase(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115040: std::vector<Customer, std::allocator<Customer> >::erase(__gnu_cxx::__normal_iterator<Customer const*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==
+==16234== Conditional jump or move depends on uninitialised value(s)
+==16234==    at 0x4F629C7: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_S_copy_chars(char*, char*, char*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==16234==    by 0x116BDF: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112F0D: Grocery::Grocery(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11673F: void __gnu_cxx::new_allocator<Grocery>::construct<Grocery, Grocery const&>(Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x116342: void std::allocator_traits<std::allocator<Grocery> >::construct<Grocery, Grocery const&>(std::allocator<Grocery>&, Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1160D5: std::vector<Grocery, std::allocator<Grocery> >::push_back(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115A6E: Customer::operator=(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1152FB: Customer* std::__copy_move<true, false, std::random_access_iterator_tag>::__copy_m<Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115299: Customer* std::__copy_move_a<true, Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115232: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::__copy_move_a2<true, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1151CD: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::move<__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11513E: std::vector<Customer, std::allocator<Customer> >::_M_erase(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==
+==16234== Conditional jump or move depends on uninitialised value(s)
+==16234==    at 0x4F629CC: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_S_copy_chars(char*, char*, char*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==16234==    by 0x116BDF: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112F0D: Grocery::Grocery(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11673F: void __gnu_cxx::new_allocator<Grocery>::construct<Grocery, Grocery const&>(Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x116342: void std::allocator_traits<std::allocator<Grocery> >::construct<Grocery, Grocery const&>(std::allocator<Grocery>&, Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1160D5: std::vector<Grocery, std::allocator<Grocery> >::push_back(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115A6E: Customer::operator=(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1152FB: Customer* std::__copy_move<true, false, std::random_access_iterator_tag>::__copy_m<Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115299: Customer* std::__copy_move_a<true, Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115232: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::__copy_move_a2<true, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1151CD: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::move<__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11513E: std::vector<Customer, std::allocator<Customer> >::_M_erase(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==
+==16234== Use of uninitialised value of size 8
+==16234==    at 0x4F62717: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_set_length(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==16234==    by 0x116BF2: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112F0D: Grocery::Grocery(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11673F: void __gnu_cxx::new_allocator<Grocery>::construct<Grocery, Grocery const&>(Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x116342: void std::allocator_traits<std::allocator<Grocery> >::construct<Grocery, Grocery const&>(std::allocator<Grocery>&, Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1160D5: std::vector<Grocery, std::allocator<Grocery> >::push_back(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115A6E: Customer::operator=(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1152FB: Customer* std::__copy_move<true, false, std::random_access_iterator_tag>::__copy_m<Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115299: Customer* std::__copy_move_a<true, Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115232: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::__copy_move_a2<true, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1151CD: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::move<__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11513E: std::vector<Customer, std::allocator<Customer> >::_M_erase(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==
+==16234== Conditional jump or move depends on uninitialised value(s)
+==16234==    at 0x116B38: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112F28: Grocery::Grocery(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11673F: void __gnu_cxx::new_allocator<Grocery>::construct<Grocery, Grocery const&>(Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x116342: void std::allocator_traits<std::allocator<Grocery> >::construct<Grocery, Grocery const&>(std::allocator<Grocery>&, Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1160D5: std::vector<Grocery, std::allocator<Grocery> >::push_back(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115A6E: Customer::operator=(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1152FB: Customer* std::__copy_move<true, false, std::random_access_iterator_tag>::__copy_m<Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115299: Customer* std::__copy_move_a<true, Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115232: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::__copy_move_a2<true, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1151CD: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::move<__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11513E: std::vector<Customer, std::allocator<Customer> >::_M_erase(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115040: std::vector<Customer, std::allocator<Customer> >::erase(__gnu_cxx::__normal_iterator<Customer const*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==
+==16234== Conditional jump or move depends on uninitialised value(s)
+==16234==    at 0x116B7F: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112F28: Grocery::Grocery(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11673F: void __gnu_cxx::new_allocator<Grocery>::construct<Grocery, Grocery const&>(Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x116342: void std::allocator_traits<std::allocator<Grocery> >::construct<Grocery, Grocery const&>(std::allocator<Grocery>&, Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1160D5: std::vector<Grocery, std::allocator<Grocery> >::push_back(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115A6E: Customer::operator=(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1152FB: Customer* std::__copy_move<true, false, std::random_access_iterator_tag>::__copy_m<Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115299: Customer* std::__copy_move_a<true, Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115232: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::__copy_move_a2<true, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1151CD: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::move<__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11513E: std::vector<Customer, std::allocator<Customer> >::_M_erase(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115040: std::vector<Customer, std::allocator<Customer> >::erase(__gnu_cxx::__normal_iterator<Customer const*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==
+==16234== Conditional jump or move depends on uninitialised value(s)
+==16234==    at 0x4F629C7: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_S_copy_chars(char*, char*, char*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==16234==    by 0x116BDF: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112F28: Grocery::Grocery(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11673F: void __gnu_cxx::new_allocator<Grocery>::construct<Grocery, Grocery const&>(Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x116342: void std::allocator_traits<std::allocator<Grocery> >::construct<Grocery, Grocery const&>(std::allocator<Grocery>&, Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1160D5: std::vector<Grocery, std::allocator<Grocery> >::push_back(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115A6E: Customer::operator=(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1152FB: Customer* std::__copy_move<true, false, std::random_access_iterator_tag>::__copy_m<Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115299: Customer* std::__copy_move_a<true, Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115232: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::__copy_move_a2<true, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1151CD: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::move<__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11513E: std::vector<Customer, std::allocator<Customer> >::_M_erase(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==
+==16234== Conditional jump or move depends on uninitialised value(s)
+==16234==    at 0x4F629CC: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_S_copy_chars(char*, char*, char*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==16234==    by 0x116BDF: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112F28: Grocery::Grocery(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11673F: void __gnu_cxx::new_allocator<Grocery>::construct<Grocery, Grocery const&>(Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x116342: void std::allocator_traits<std::allocator<Grocery> >::construct<Grocery, Grocery const&>(std::allocator<Grocery>&, Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1160D5: std::vector<Grocery, std::allocator<Grocery> >::push_back(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115A6E: Customer::operator=(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1152FB: Customer* std::__copy_move<true, false, std::random_access_iterator_tag>::__copy_m<Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115299: Customer* std::__copy_move_a<true, Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115232: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::__copy_move_a2<true, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1151CD: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::move<__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11513E: std::vector<Customer, std::allocator<Customer> >::_M_erase(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==
+==16234== Use of uninitialised value of size 8
+==16234==    at 0x4F62717: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_set_length(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==16234==    by 0x116BF2: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112F28: Grocery::Grocery(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11673F: void __gnu_cxx::new_allocator<Grocery>::construct<Grocery, Grocery const&>(Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x116342: void std::allocator_traits<std::allocator<Grocery> >::construct<Grocery, Grocery const&>(std::allocator<Grocery>&, Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1160D5: std::vector<Grocery, std::allocator<Grocery> >::push_back(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115A6E: Customer::operator=(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1152FB: Customer* std::__copy_move<true, false, std::random_access_iterator_tag>::__copy_m<Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115299: Customer* std::__copy_move_a<true, Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115232: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::__copy_move_a2<true, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1151CD: __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > std::move<__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > > >(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, __gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11513E: std::vector<Customer, std::allocator<Customer> >::_M_erase(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >) (in /home/stu110511232/110511232/p2/P2)
+==16234==
+==16234== Conditional jump or move depends on uninitialised value(s)
+==16234==    at 0x116B7F: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112F0D: Grocery::Grocery(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112FBD: void std::_Construct<Grocery, Grocery const&>(Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x111944: Grocery* std::__uninitialized_copy<false>::__uninit_copy<__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*>(__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, __gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10F5FF: Grocery* std::uninitialized_copy<__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*>(__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, __gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10DC5E: Grocery* std::__uninitialized_copy_a<__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*, Grocery>(__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, __gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*, std::allocator<Grocery>&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10CA72: std::vector<Grocery, std::allocator<Grocery> >::vector(std::vector<Grocery, std::allocator<Grocery> > const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11080C: Customer::Customer(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11087B: void __gnu_cxx::new_allocator<Customer>::construct<Customer, Customer const&>(Customer*, Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10E587: void std::allocator_traits<std::allocator<Customer> >::construct<Customer, Customer const&>(std::allocator<Customer>&, Customer*, Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10E651: void std::vector<Customer, std::allocator<Customer> >::_M_realloc_insert<Customer const&>(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10D0A3: std::vector<Customer, std::allocator<Customer> >::push_back(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==
+==16234== Conditional jump or move depends on uninitialised value(s)
+==16234==    at 0x4F629C7: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_S_copy_chars(char*, char*, char*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==16234==    by 0x116BDF: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112F0D: Grocery::Grocery(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112FBD: void std::_Construct<Grocery, Grocery const&>(Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x111944: Grocery* std::__uninitialized_copy<false>::__uninit_copy<__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*>(__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, __gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10F5FF: Grocery* std::uninitialized_copy<__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*>(__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, __gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10DC5E: Grocery* std::__uninitialized_copy_a<__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*, Grocery>(__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, __gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*, std::allocator<Grocery>&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10CA72: std::vector<Grocery, std::allocator<Grocery> >::vector(std::vector<Grocery, std::allocator<Grocery> > const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11080C: Customer::Customer(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11087B: void __gnu_cxx::new_allocator<Customer>::construct<Customer, Customer const&>(Customer*, Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10E587: void std::allocator_traits<std::allocator<Customer> >::construct<Customer, Customer const&>(std::allocator<Customer>&, Customer*, Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10E651: void std::vector<Customer, std::allocator<Customer> >::_M_realloc_insert<Customer const&>(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==
+==16234== Conditional jump or move depends on uninitialised value(s)
+==16234==    at 0x4F629CC: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_S_copy_chars(char*, char*, char*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==16234==    by 0x116BDF: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112F0D: Grocery::Grocery(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112FBD: void std::_Construct<Grocery, Grocery const&>(Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x111944: Grocery* std::__uninitialized_copy<false>::__uninit_copy<__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*>(__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, __gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10F5FF: Grocery* std::uninitialized_copy<__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*>(__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, __gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10DC5E: Grocery* std::__uninitialized_copy_a<__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*, Grocery>(__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, __gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*, std::allocator<Grocery>&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10CA72: std::vector<Grocery, std::allocator<Grocery> >::vector(std::vector<Grocery, std::allocator<Grocery> > const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11080C: Customer::Customer(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11087B: void __gnu_cxx::new_allocator<Customer>::construct<Customer, Customer const&>(Customer*, Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10E587: void std::allocator_traits<std::allocator<Customer> >::construct<Customer, Customer const&>(std::allocator<Customer>&, Customer*, Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10E651: void std::vector<Customer, std::allocator<Customer> >::_M_realloc_insert<Customer const&>(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==
+==16234== Use of uninitialised value of size 8
+==16234==    at 0x4F62717: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_set_length(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==16234==    by 0x116BF2: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112F0D: Grocery::Grocery(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112FBD: void std::_Construct<Grocery, Grocery const&>(Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x111944: Grocery* std::__uninitialized_copy<false>::__uninit_copy<__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*>(__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, __gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10F5FF: Grocery* std::uninitialized_copy<__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*>(__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, __gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10DC5E: Grocery* std::__uninitialized_copy_a<__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*, Grocery>(__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, __gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*, std::allocator<Grocery>&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10CA72: std::vector<Grocery, std::allocator<Grocery> >::vector(std::vector<Grocery, std::allocator<Grocery> > const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11080C: Customer::Customer(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11087B: void __gnu_cxx::new_allocator<Customer>::construct<Customer, Customer const&>(Customer*, Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10E587: void std::allocator_traits<std::allocator<Customer> >::construct<Customer, Customer const&>(std::allocator<Customer>&, Customer*, Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10E651: void std::vector<Customer, std::allocator<Customer> >::_M_realloc_insert<Customer const&>(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==
+==16234== Conditional jump or move depends on uninitialised value(s)
+==16234==    at 0x116B7F: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112F28: Grocery::Grocery(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112FBD: void std::_Construct<Grocery, Grocery const&>(Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x111944: Grocery* std::__uninitialized_copy<false>::__uninit_copy<__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*>(__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, __gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10F5FF: Grocery* std::uninitialized_copy<__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*>(__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, __gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10DC5E: Grocery* std::__uninitialized_copy_a<__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*, Grocery>(__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, __gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*, std::allocator<Grocery>&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10CA72: std::vector<Grocery, std::allocator<Grocery> >::vector(std::vector<Grocery, std::allocator<Grocery> > const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11080C: Customer::Customer(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11087B: void __gnu_cxx::new_allocator<Customer>::construct<Customer, Customer const&>(Customer*, Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10E587: void std::allocator_traits<std::allocator<Customer> >::construct<Customer, Customer const&>(std::allocator<Customer>&, Customer*, Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10E651: void std::vector<Customer, std::allocator<Customer> >::_M_realloc_insert<Customer const&>(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10D0A3: std::vector<Customer, std::allocator<Customer> >::push_back(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==
+==16234== Conditional jump or move depends on uninitialised value(s)
+==16234==    at 0x4F629C7: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_S_copy_chars(char*, char*, char*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==16234==    by 0x116BDF: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112F28: Grocery::Grocery(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112FBD: void std::_Construct<Grocery, Grocery const&>(Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x111944: Grocery* std::__uninitialized_copy<false>::__uninit_copy<__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*>(__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, __gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10F5FF: Grocery* std::uninitialized_copy<__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*>(__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, __gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10DC5E: Grocery* std::__uninitialized_copy_a<__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*, Grocery>(__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, __gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*, std::allocator<Grocery>&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10CA72: std::vector<Grocery, std::allocator<Grocery> >::vector(std::vector<Grocery, std::allocator<Grocery> > const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11080C: Customer::Customer(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11087B: void __gnu_cxx::new_allocator<Customer>::construct<Customer, Customer const&>(Customer*, Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10E587: void std::allocator_traits<std::allocator<Customer> >::construct<Customer, Customer const&>(std::allocator<Customer>&, Customer*, Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10E651: void std::vector<Customer, std::allocator<Customer> >::_M_realloc_insert<Customer const&>(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==
+==16234== Conditional jump or move depends on uninitialised value(s)
+==16234==    at 0x4F629CC: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_S_copy_chars(char*, char*, char*) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==16234==    by 0x116BDF: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112F28: Grocery::Grocery(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112FBD: void std::_Construct<Grocery, Grocery const&>(Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x111944: Grocery* std::__uninitialized_copy<false>::__uninit_copy<__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*>(__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, __gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10F5FF: Grocery* std::uninitialized_copy<__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*>(__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, __gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10DC5E: Grocery* std::__uninitialized_copy_a<__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*, Grocery>(__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, __gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*, std::allocator<Grocery>&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10CA72: std::vector<Grocery, std::allocator<Grocery> >::vector(std::vector<Grocery, std::allocator<Grocery> > const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11080C: Customer::Customer(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11087B: void __gnu_cxx::new_allocator<Customer>::construct<Customer, Customer const&>(Customer*, Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10E587: void std::allocator_traits<std::allocator<Customer> >::construct<Customer, Customer const&>(std::allocator<Customer>&, Customer*, Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10E651: void std::vector<Customer, std::allocator<Customer> >::_M_realloc_insert<Customer const&>(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==
+==16234== Use of uninitialised value of size 8
+==16234==    at 0x4F62717: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_set_length(unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==16234==    by 0x116BF2: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112F28: Grocery::Grocery(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112FBD: void std::_Construct<Grocery, Grocery const&>(Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x111944: Grocery* std::__uninitialized_copy<false>::__uninit_copy<__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*>(__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, __gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10F5FF: Grocery* std::uninitialized_copy<__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*>(__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, __gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10DC5E: Grocery* std::__uninitialized_copy_a<__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*, Grocery>(__gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, __gnu_cxx::__normal_iterator<Grocery const*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery*, std::allocator<Grocery>&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10CA72: std::vector<Grocery, std::allocator<Grocery> >::vector(std::vector<Grocery, std::allocator<Grocery> > const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11080C: Customer::Customer(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11087B: void __gnu_cxx::new_allocator<Customer>::construct<Customer, Customer const&>(Customer*, Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10E587: void std::allocator_traits<std::allocator<Customer> >::construct<Customer, Customer const&>(std::allocator<Customer>&, Customer*, Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x10E651: void std::vector<Customer, std::allocator<Customer> >::_M_realloc_insert<Customer const&>(__gnu_cxx::__normal_iterator<Customer*, std::vector<Customer, std::allocator<Customer> > >, Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==
+==16234== Conditional jump or move depends on uninitialised value(s)
+==16234==    at 0x116B7F: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112F0D: Grocery::Grocery(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112FBD: void std::_Construct<Grocery, Grocery const&>(Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x117755: Grocery* std::__uninitialized_copy<false>::__uninit_copy<Grocery const*, Grocery*>(Grocery const*, Grocery const*, Grocery*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x117181: Grocery* std::uninitialized_copy<Grocery const*, Grocery*>(Grocery const*, Grocery const*, Grocery*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x116C9C: Grocery* std::__uninitialized_copy_a<Grocery const*, Grocery*, Grocery>(Grocery const*, Grocery const*, Grocery*, std::allocator<Grocery>&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x116902: Grocery* std::__uninitialized_move_if_noexcept_a<Grocery*, Grocery*, std::allocator<Grocery> >(Grocery*, Grocery*, Grocery*, std::allocator<Grocery>&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x116447: void std::vector<Grocery, std::allocator<Grocery> >::_M_realloc_insert<Grocery const&>(__gnu_cxx::__normal_iterator<Grocery*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11610D: std::vector<Grocery, std::allocator<Grocery> >::push_back(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115A6E: Customer::operator=(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1152FB: Customer* std::__copy_move<true, false, std::random_access_iterator_tag>::__copy_m<Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115299: Customer* std::__copy_move_a<true, Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==
+==16234== Conditional jump or move depends on uninitialised value(s)
+==16234==    at 0x116B7F: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112F28: Grocery::Grocery(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112FBD: void std::_Construct<Grocery, Grocery const&>(Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x117755: Grocery* std::__uninitialized_copy<false>::__uninit_copy<Grocery const*, Grocery*>(Grocery const*, Grocery const*, Grocery*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x117181: Grocery* std::uninitialized_copy<Grocery const*, Grocery*>(Grocery const*, Grocery const*, Grocery*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x116C9C: Grocery* std::__uninitialized_copy_a<Grocery const*, Grocery*, Grocery>(Grocery const*, Grocery const*, Grocery*, std::allocator<Grocery>&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x116902: Grocery* std::__uninitialized_move_if_noexcept_a<Grocery*, Grocery*, std::allocator<Grocery> >(Grocery*, Grocery*, Grocery*, std::allocator<Grocery>&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x116447: void std::vector<Grocery, std::allocator<Grocery> >::_M_realloc_insert<Grocery const&>(__gnu_cxx::__normal_iterator<Grocery*, std::vector<Grocery, std::allocator<Grocery> > >, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11610D: std::vector<Grocery, std::allocator<Grocery> >::push_back(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115A6E: Customer::operator=(Customer const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1152FB: Customer* std::__copy_move<true, false, std::random_access_iterator_tag>::__copy_m<Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x115299: Customer* std::__copy_move_a<true, Customer*, Customer*>(Customer*, Customer*, Customer*) (in /home/stu110511232/110511232/p2/P2)
+==16234==
+terminate called after throwing an instance of 'std::logic_error'
+  what():  basic_string::_M_construct null not valid
+==16234==
+==16234== Process terminating with default action of signal 6 (SIGABRT)
+==16234==    at 0x541DE87: raise (raise.c:51)
+==16234==    by 0x541F7F0: abort (abort.c:79)
+==16234==    by 0x4ECA956: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==16234==    by 0x4ED0AE5: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==16234==    by 0x4ED0B20: std::terminate() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==16234==    by 0x4ED0D53: __cxa_throw (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==16234==    by 0x4ECC79E: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==16234==    by 0x116B5F: void std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_construct<char*>(char*, char*, std::forward_iterator_tag) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x112F0D: Grocery::Grocery(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x11673F: void __gnu_cxx::new_allocator<Grocery>::construct<Grocery, Grocery const&>(Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x116342: void std::allocator_traits<std::allocator<Grocery> >::construct<Grocery, Grocery const&>(std::allocator<Grocery>&, Grocery*, Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==    by 0x1160D5: std::vector<Grocery, std::allocator<Grocery> >::push_back(Grocery const&) (in /home/stu110511232/110511232/p2/P2)
+==16234==
+==16234== HEAP SUMMARY:
+==16234==     in use at exit: 21,942 bytes in 27 blocks
+==16234==   total heap usage: 328 allocs, 301 frees, 96,139,500 bytes allocated
+==16234==
+==16234== LEAK SUMMARY:
+==16234==    definitely lost: 0 bytes in 0 blocks
+==16234==    indirectly lost: 0 bytes in 0 blocks
+==16234==      possibly lost: 144 bytes in 1 blocks
+==16234==    still reachable: 21,798 bytes in 26 blocks
+==16234==                       of which reachable via heuristic:
+==16234==                         stdstring          : 66 bytes in 1 blocks
+==16234==         suppressed: 0 bytes in 0 blocks
+==16234== Rerun with --leak-check=full to see details of leaked memory
+==16234==
+==16234== For counts of detected and suppressed errors, rerun with: -v
+==16234== Use --track-origins=yes to see where uninitialised values come from
+==16234== ERROR SUMMARY: 507996 errors from 28 contexts (suppressed: 0 from 0)
+Aborted (core dumped)

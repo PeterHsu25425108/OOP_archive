@@ -1,0 +1,7 @@
+house 20 20
+house 21 20
+farm 24 21
+house 22 20
+house 23 20
+spearman_barracks 21 21
+archer_barracks  20 22
